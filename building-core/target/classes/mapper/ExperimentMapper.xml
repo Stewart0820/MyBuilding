@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stewart.building.mbg.mapper.ExperimentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stewart.building.mbg.pojo.Experiment">
+        <id column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="max_stu_num" property="maxStuNum" />
+        <result column="min_stu_num" property="minStuNum" />
+        <result column="name" property="name" />
+        <result column="number" property="number" />
+        <result column="exp_link" property="expLink" />
+        <result column="description" property="description" />
+        <result column="capacity" property="capacity" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_time, update_time, max_stu_num, min_stu_num, name, number, exp_link, description, capacity
+    </sql>
+
+</mapper>

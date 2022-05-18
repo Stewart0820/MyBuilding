@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "building.thread",
+      "type": "com.stewart.building.config.thread.ThreadPoolConfigProperties",
+      "sourceType": "com.stewart.building.config.thread.ThreadPoolConfigProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

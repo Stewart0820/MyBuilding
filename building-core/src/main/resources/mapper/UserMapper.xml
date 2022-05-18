@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stewart.building.mbg.mapper.UserVoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stewart.building.mbg.pojo.User">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="account" property="account" />
+        <result column="password" property="password" />
+        <result column="mobile" property="mobile" />
+        <result column="gender" property="gender" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="type" property="type" />
+        <result column="email" property="email" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, account, password, mobile, gender, create_time, update_time, type, email
+    </sql>
+
+    <insert id="batchInsert" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+        insert into user(
+            account,name,mobile,gender,email,password,type,create_time
+        )
+        values
+        <foreach collection="list" item="data" separator=",">
+            (
+                #{data.account},#{data.name},#{data.mobile},#{data.gender},#{data.email},#{data.password},#{data.type},#{data.createTime}
+            )
+        </foreach>
+    </insert>
+
+
+
+</mapper>
