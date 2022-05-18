@@ -11,6 +11,7 @@
     <modules>
         <module>building-core</module>
         <module>building-mail</module>
+        <module>building-common</module>
     </modules>
 
     <parent>

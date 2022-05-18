@@ -10,6 +10,7 @@ import com.stewart.building.mbg.service.IUserService;
 import com.stewart.building.param.user.teacher.AddTeacherParam;
 import com.stewart.building.param.user.teacher.GetAllTeacherByPageParam;
 import com.stewart.building.param.user.teacher.UpdateTeacherParam;
+import com.stewart.building.to.TeacherTo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -54,7 +55,9 @@ public class TeacherController {
     @ApiOperation(value = "添加老师")
     @PostMapping("/add")
     public R addTeacher(@Valid @RequestBody AddTeacherParam addTeacherParam) {
-        rabbitTemplate.convertAndSend("mail.welcome",addTeacherParam.getEmail());
+        TeacherTo teacherTo = new TeacherTo();
+        teacherTo.setEmail(addTeacherParam.getEmail()).setName(addTeacherParam.getName());
+        rabbitTemplate.convertAndSend("mail.welcome",teacherTo);
 
         return R.ok(ResultStatus.SUCCESS);
 //        return userService.addTeacher(addTeacherParam);
