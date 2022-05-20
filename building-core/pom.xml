@@ -28,6 +28,11 @@
         <easyexcel.version>2.2.11</easyexcel.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-typehandlers-jsr310</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 
         <dependency>
             <artifactId>building-common</artifactId>
