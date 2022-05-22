@@ -67,6 +67,7 @@ public class TeacherController {
         teacherTo.setEmail(addTeacherParam.getEmail()).setName(addTeacherParam.getName());
 
         String msgId = UUID.randomUUID().toString();
+//        String msgId = "123456";
         MailLog mailLog = new MailLog();
         mailLog.setMsgId(msgId)
                 //这个是老师的id
@@ -80,7 +81,7 @@ public class TeacherController {
                 .setUpdateTime(LocalDateTime.now());
         mailLogService.save(mailLog);
 
-        rabbitTemplate.convertAndSend("MailConstants.MAIL_EXCHANGE_NAME",
+        rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME,
                 MailConstants.MAIL_ROUTING_KEY_NAME,teacherTo
         ,new CorrelationData(msgId));
 
